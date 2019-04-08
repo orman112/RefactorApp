@@ -8,37 +8,34 @@ using System.Threading.Tasks;
 
 namespace RefactorApp.Services
 {
-    public class ComboService //TODO: needs interface
+    public class ComboService
     {
-        ComboRepository _comboRepository; //TODO: should use IComboRepository instead
+        ComboRepository _comboRepository;
 
-        public ComboService() //TODO: no logging present
+        public ComboService()
         {
-            //TODO: Dependency Injection
             _comboRepository = new ComboRepository();
         }
 
-        public void UpdateComboSide(Combo combo, Side side) //TODO: Should be domain specific logic
+        public void UpdateComboSide(Combo combo, Side side)
         {
             combo.SideType = side;
         }
 
-        public IEnumerable<Combo> GetMashedPotatoesCombo() //TODO: Should be in the repository
+        public IEnumerable<Combo> GetMashedPotatoesCombo()
         {
             var combos = _comboRepository.GetAllCombos();
             var type = typeof(MashedPotato);
             return combos.Where(c => c.SideType.GetType() == typeof(MashedPotato));
         }
 
-        public async Task<Combo> PlaceOrderAsync(Combo combo) //TODO: doesn't need to be async
+        public async Task<Combo> PlaceOrderAsync(Combo combo)
         {
             if (combo.Side == null ||
                 combo.Dessert == null)
             {
-                throw new Exception("Combo must have a side and dessert before order can be placed."); //TODO: should throw argument null exception
+                throw new Exception("Combo must have a side and dessert before order can be placed.");
             }
-
-            //TODO: set order time as DateTime.Now if null
 
             await _comboRepository.AddAsync(combo);
             return combo;

@@ -34,7 +34,7 @@ namespace RefactorApp
             var comboService = new ComboService();
             var newOrder = comboService.PlaceOrderAsync(kidsMeal);
 
-            return new AcceptedResult(); //TODO: Should return 201 Created result
+            return new AcceptedResult();
         }
     }
 }

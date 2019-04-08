@@ -15,7 +15,7 @@ namespace RefactorApp.Data
         [JsonIgnore]
         public abstract Dessert DessertType { get; set; }
 
-        public DateTime OrderTime { get; set; } //TODO: should be nullable
+        public DateTime OrderTime { get; set; }
 
         public string Side => SideType.GetType().Name;
 
