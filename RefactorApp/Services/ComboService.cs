@@ -1,6 +1,7 @@
 ﻿using RefactorApp.Data;
 using RefactorApp.Data.Repositories;
 using RefactorApp.Data.Sides;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace RefactorApp.Services
 {
     public class ComboService //needs interface
     {
-        ComboRepository _comboRepository;
+        ComboRepository _comboRepository; //should use IComboRepository instead
 
         public ComboService() //no logging present
         {
@@ -31,12 +32,15 @@ namespace RefactorApp.Services
 
         public async Task<Combo> PlaceOrderAsync(Combo combo) //doesn't need to be async
         {
-            //if (combo.Side == null)
-            //{
-            //    throw 
-            //}
+            if (combo.Side == null ||
+                combo.Dessert == null)
+            {
+                throw new Exception("Combo must have a side and dessert before order can be placed."); //should throw argument null exception
+            }
 
-            //await _comboRepository.AddAsync(combo);
+            //set order time as DateTime.Now if null
+
+            await _comboRepository.AddAsync(combo);
             return combo;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using RefactorApp.Data.Combos;
 using RefactorApp.Data.Desserts;
 using RefactorApp.Data.Repositories.Interfaces;
@@ -20,6 +21,14 @@ namespace RefactorApp.Data.Repositories
             listOfCombos.Add(kidMealCombo);
 
             return listOfCombos;
+        }
+
+        public Task<Combo> AddAsync(Combo comboToAdd)
+        {
+            //...Some database logic to add combo
+            //Assume everything went smoothly
+
+            return Task.FromResult<Combo>(comboToAdd);
         }
     }
 }

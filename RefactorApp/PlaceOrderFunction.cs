@@ -9,6 +9,8 @@ using RefactorApp.Services;
 using RefactorApp.Data.Combos;
 using RefactorApp.Data.Sides;
 using RefactorApp.Data.Desserts;
+using Newtonsoft.Json;
+using RefactorApp.Data;
 
 namespace RefactorApp
 {
@@ -28,8 +30,9 @@ namespace RefactorApp
                 return new UnsupportedMediaTypeResult();
             }
 
+            var kidsMeal = new KidMealCombo(new FrenchFry(), new IceCream());
             var comboService = new ComboService();
-            var newOrder = comboService.PlaceOrderAsync(new KidMealCombo(new FrenchFry(), new IceCream()));
+            var newOrder = comboService.PlaceOrderAsync(kidsMeal);
 
             return new AcceptedResult(); //Should return 201 Created result
         }
