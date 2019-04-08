@@ -1,12 +1,26 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace RefactorApp.Data
 {
+
     public abstract class Combo
     {
-        public abstract Sandwich Sandwich { get; }
-        public abstract Side Side { get; set; }
-        public abstract Dessert Dessert { get; set; }
-        public DateTime OrderTime => DateTime.Now;
+        [JsonIgnore]
+        public abstract Sandwich SandwichType { get; }
+
+        [JsonIgnore]
+        public abstract Side SideType { get; set; }
+
+        [JsonIgnore]
+        public abstract Dessert DessertType { get; set; }
+
+        public DateTime OrderTime { get; set; }
+
+        public string Side => SideType.GetType().Name;
+
+        public string Sandwich => SandwichType.GetType().Name;
+
+        public string Dessert => DessertType.GetType().Name;
     }
 }

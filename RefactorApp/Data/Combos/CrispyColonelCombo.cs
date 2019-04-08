@@ -13,15 +13,15 @@ namespace RefactorApp.Data.Combos
             _dessert = dessert;
         }
 
-        public override Sandwich Sandwich => new CrispyColonel();
+        public override Sandwich SandwichType => new CrispyColonel();
 
-        public override Side Side
+        public override Side SideType
         {
             get => _side;
             set => _side = value;
         }
 
-        public override Dessert Dessert
+        public override Dessert DessertType
         {
             get => _dessert;
             set => _dessert = value;

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using RefactorApp.Data.Repositories;
 using RefactorApp.Services;
+using System;
 
 namespace RefactorApp
 {
@@ -17,14 +18,14 @@ namespace RefactorApp
             HttpRequest req, //not used
             ILogger log)
         {
-            log.LogWarning("C# HTTP trigger function processed a request."); //wrong log level
+            var orderId = Guid.NewGuid();
+            log.LogWarning("Getting all possible combos for this order"); //wrong log level and no identifier specified
 
             var comboRepository = new ComboRepository();
             var comboService = new ComboService();
             var combos = comboService.GetMashedPotatoesCombo();
 
-                       
-            return new OkObjectResult($"Hello, {combos}");
+            return new OkObjectResult($"Here are the possible orders for order Id {orderId}: {combos}"); //needs to be serialized into JSON and should only return object
         }
     }
 }
