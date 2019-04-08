@@ -19,5 +19,7 @@ namespace RefactorApp.Tests
 
             Assert.IsInstanceOfType(combo.Side, typeof(MacAndCheese));
         }
+
+        //TODO: Create unit test for checking nullable dates and setting to DateTime.Now
     }
 }
