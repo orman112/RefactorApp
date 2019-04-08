@@ -1,6 +1,6 @@
 ﻿namespace RefactorApp.Data
 {
-    class Dessert
+    public class Dessert
     {
     }
 }

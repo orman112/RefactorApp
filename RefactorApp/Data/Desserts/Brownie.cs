@@ -1,4 +1,4 @@
 ﻿namespace RefactorApp.Data.Desserts
 {
-    class Brownie : Dessert { }
+    public class Brownie : Dessert { }
 }

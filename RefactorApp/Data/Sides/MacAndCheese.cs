@@ -1,4 +1,4 @@
 ﻿namespace RefactorApp.Data.Sides
 {
-    class MacAndCheese : Side { }
+    public class MacAndCheese : Side { }
 }

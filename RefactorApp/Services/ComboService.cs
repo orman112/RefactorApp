@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace RefactorApp.Services
 {
-    class ComboService
+    public class ComboService
     {
         ComboRepository _comboRepository;
 

@@ -2,7 +2,7 @@
 
 namespace RefactorApp.Data.Combos
 {
-    class ChickenLittleCombo : Combo
+    public class ChickenLittleCombo : Combo
     {
         private Side _side;
         private Dessert _dessert;

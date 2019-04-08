@@ -1,4 +1,4 @@
 ﻿namespace RefactorApp.Data.Sides
 {
-    class MashedPotato : Side { }
+    public class MashedPotato : Side { }
 }

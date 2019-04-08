@@ -7,7 +7,7 @@ using RefactorApp.Data.Sides;
 
 namespace RefactorApp.Data.Repositories
 {
-    class ComboRepository : IComboRepository<Combo>
+    public class ComboRepository : IComboRepository<Combo>
     {
         public IEnumerable<Combo> GetAllCombos()
         {
